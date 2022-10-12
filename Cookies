@@ -1,0 +1,22 @@
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
+service=Service(executable_path=ChromeDriverManager().install())
+opt=webdriver.ChromeOptions()
+driver=webdriver.Chrome(service=service,options=opt)
+
+driver.get("https://www.amazon.in/")
+cookies=driver.get_cookies()
+print(cookies)
+print(len(cookies))
+
+cookie1={'name':'mycookie','value':'1234'}
+driver.add_cookie(cookie1)
+print(len(cookies))
+
+driver.delete_cookie(cookie1)
+ck=driver.get_cookie('domain')
+print(ck)
+
