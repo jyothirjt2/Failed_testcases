@@ -1,0 +1,42 @@
+import unittest
+from selenium import webdriver
+
+
+def setUpModule():       # execute before executing any class or any method present in the test case
+    print("setUp Module")
+
+
+def tearDownModule():      # execute after executing any class or any method present in the test case
+    print("tearDown Module")
+
+
+class AppTesting(unittest.TestCase):
+
+    @classmethod
+    def setUp(self):                                          # before every method will execute
+        print("login into the application")
+
+    @classmethod
+    def tearDown(self):
+        print("logout the application")
+
+    @classmethod
+    def setUpClass(cls):                                       # execute once when the class started
+        print("Open the browser ")
+
+    @classmethod
+    def tearDownClass(cls):                                     # execute once after the class completed
+        print("close the browser ")
+
+    def test_search(self):
+        print("search testcase")
+
+    def test_prepaidrecharge(self):
+        print("add the product to the cart")
+
+    def test_postpaidrecharge(self):
+        print("add to the whishlist")
+
+
+if __name__ == "__main__":
+    unittest.main()
