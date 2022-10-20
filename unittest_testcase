@@ -6,19 +6,20 @@ import unittest
 
 
 class SearchEngineTest(unittest.TestCase):
-    def __main__(self):
+
+    def test_googlesearch(self):
         services = Service(executable_path=ChromeDriverManager().install())
         opt = webdriver.ChromeOptions()
         self.driver = webdriver.Chrome(service=services, options=opt)
-
-    def googlesearch(self):
-
         self.driver.get("https://www.google.com/")
         print("title of the page: "+self.driver.title)
         self.driver.close()
 
-    def bingsearch(self):
+    def test_bingsearch(self):
 
+        services = Service(executable_path=ChromeDriverManager().install())
+        opt = webdriver.ChromeOptions()
+        self.driver = webdriver.Chrome(service=services, options=opt)
         self.driver.get('https://www.bing.com/')
         print("title of the page: "+self.driver.title)
         self.driver.close()
@@ -26,6 +27,8 @@ class SearchEngineTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
 
 
 
