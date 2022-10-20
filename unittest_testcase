@@ -1,0 +1,31 @@
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import unittest
+
+
+class SearchEngineTest(unittest.TestCase):
+    def __main__(self):
+        services = Service(executable_path=ChromeDriverManager().install())
+        opt = webdriver.ChromeOptions()
+        self.driver = webdriver.Chrome(service=services, options=opt)
+
+    def googlesearch(self):
+
+        self.driver.get("https://www.google.com/")
+        print("title of the page: "+self.driver.title)
+        self.driver.close()
+
+    def bingsearch(self):
+
+        self.driver.get('https://www.bing.com/')
+        print("title of the page: "+self.driver.title)
+        self.driver.close()
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+
