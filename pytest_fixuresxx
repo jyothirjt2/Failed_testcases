@@ -1,0 +1,16 @@
+import pytest
+
+
+@pytest.yield_fixture()  # will execute this  method before every method we specify
+def setup():
+    print("before every method")                                     # 1st statement will execute before every method
+    yield
+    print("after every method")                                      # 2nd statement will execute after every method
+
+
+def testmethod1(setup):
+    print("method1")
+
+
+def testmethod2(setup):
+    print("method2")
